@@ -31,30 +31,33 @@ public class ParabankTest {
  }
 
  @Test
- public void transferFundsTest1(){
+ public void transferFundsTest1() throws InterruptedException {
   ParaBankApplicationPage applicationPage=new ParaBankApplicationPage(driver);
   applicationPage.loginPage.login(new Credentials());
   applicationPage.accountServicesPage.transferFundsClick();
+  Thread.sleep(1000);
   applicationPage.transferFundsPage.transferFunds(new Transaction(100,12345,12456));
   applicationPage.transferFundsPage.verifyMessage();
 
  }
 
  @Test
- public void transferFundsTest2(){
+ public void transferFundsTest2() throws InterruptedException {
   ParaBankApplicationPage applicationPage=new ParaBankApplicationPage(driver);
   applicationPage.loginPage.login(new Credentials());
   applicationPage.accountServicesPage.transferFundsClick();
+  Thread.sleep(1000);
   applicationPage.transferFundsPage.transferFunds(new Transaction(500,12456,12567));
   applicationPage.transferFundsPage.verifyMessage();
 
  }
 
  @Test
- public void transferFundsTest3(){
+ public void transferFundsTest3() throws InterruptedException {
   ParaBankApplicationPage applicationPage=new ParaBankApplicationPage(driver);
   applicationPage.loginPage.login(new Credentials());
   applicationPage.accountServicesPage.transferFundsClick();
+  Thread.sleep(1000);
   applicationPage.transferFundsPage.transferFunds(new Transaction(1000000,12345 ,12456));
   applicationPage.transferFundsPage.verifyMessage();
  }

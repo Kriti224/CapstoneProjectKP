@@ -18,9 +18,10 @@ public class TransferFundsPage extends AbstractPage{
 
     public void transferFunds(Transaction transaction){
         try {
+            sendKeys(amountTextBox,String.valueOf(transaction.amount));
+
             // Explicit wait for options to get populated
             findSelectOptions(fromAccountDropdown,By.tagName("option"));
-            sendKeys(amountTextBox,String.valueOf(transaction.amount));
             // select option by Select class
             selectFromDropdown(fromAccountDropdown,String.valueOf(transaction.fromAccount));
             selectFromDropdown(toAccountDropdown,String.valueOf(transaction.toAccount));
